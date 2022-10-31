@@ -1,7 +1,7 @@
 ### Code Name: 
 
 # Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location
-### Anushka Damidi, Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)
+### Anushka Damidi (damidia@uw.edu), Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)
 INFO-201: Technical Foundations of Informatics - The Information School - University of Washington, Autumn 2022
 
 # Abstract (Anushka)
@@ -17,16 +17,16 @@ INFO-201: Technical Foundations of Informatics - The Information School - Univer
 We are interested in looking into healthcare access and outcome by a couple metrics. We will look into disparities in maternal mortality by race, as well as by location type. We will also  look into hospital access by location. We would also be interested in looking into healthcare outcomes more broadly by race, although this data is difficult to find. Broadly, our project investigates which people in the USA have access to healthcare, and to favorable healthcare outcomes. 
 
 ## Problem Domain (max)
-- Project Framing: Mostly TBD at the moment, we will look into how location and race are tied to healthcare quality (using maternal mortality as a proxy, at least for now), and what areas of the US have access to hospitals. 
-- Human Values: All people deserve access to quality healthcare, but this right is often denied. Black and Indigenous mothers (and other birthing parents of color) face much higher rates of maternal mortality than white mothers. People living in some areas of the US also face a lack of access to healthcare, often compounded by other health risk factors.(https://www.cdc.gov/reproductivehealth/maternal-mortality/pregnancy-mortality-surveillance-system.htm)
-- Stakeholders: Indirect stakeholders include anyone who needs medical attention living in the US, and direct stakeholders include those hospitals and medical institutions that have access to this data about healthcare inequity, and yet so often continue giving sub-par care to some people. 
-- Possible Harms: Depending on the data we find, some groups (especially racial groups who may be categorized poorly in data sets) may be represented in ways they do not prefer. 
-- Possible Benefits: Showing the racial groups and physical communities that recieve lackluster medical care may expose these inequities and encourage people (hospitals? The US govenment? Concerned citizens?) to make changes in our healthcare system.
+- **Project Framing:** Mostly TBD at the moment, we will look into how location and race are tied to healthcare quality (using maternal mortality as a proxy, at least for now), and what areas of the US have access to hospitals. 
+- **Human Values:** All people deserve access to quality healthcare, but this right is often denied. Black and Indigenous mothers (and other birthing parents of color) face much higher rates of maternal mortality than white mothers. People living in some areas of the US also face a lack of access to healthcare, often compounded by other health risk factors.(https://www.cdc.gov/reproductivehealth/maternal-mortality/pregnancy-mortality-surveillance-system.htm)
+- **Stakeholders:** Indirect stakeholders include anyone who needs medical attention living in the US, and direct stakeholders include those hospitals and medical institutions that have access to this data about healthcare inequity, and yet so often continue giving sub-par care to some people. 
+- **Possible Harms:** Depending on the data we find, some groups (especially racial groups who may be categorized poorly in data sets) may be represented in ways they do not prefer. 
+- **Possible Benefits:** Showing the racial groups and physical communities that recieve lackluster medical care may expose these inequities and encourage people (hospitals? The US govenment? Concerned citizens?) to make changes in our healthcare system.
 
 ## Research Questions (5-6 questions)
 - *Who has access to hospitals in the United States?* Lack of hospital access can be a compounding factor leading to worse health outcomes, especially when low-income communities both lack healthcare access and are subject to compounding health risk factors, such as pollution and poverty.
 - *How does race affect the mortality rates of pregnant women in healthcare?* Data has shown that women of color are receive less attentive care when compared to white women in the healthcare clinic, especially in the labor and delivery setting. *What factors come into play here?*
-- *How does location (we have data for location type) affect the mortality rates of pregnant women in healthcare?* Why is maternal mortality higher in some areas (lack of hospitals?)? Who is living in those areas?
+- *How does location (broadly speaking: rural, suburban, urban, etc) affect the mortality rates of pregnant women in healthcare?* Why is maternal mortality higher in some areas, do they lack hospitals or have to drive a long way to get to one? Who is living in those areas?
 
 ## The Dataset
 So far, we have found 3 datasets that cover the following topics: Hospitals by location in US, maternal mortality by race, and maternal mortality by type of location (urban, rural, etc.). These datasets will give us an idea of how healthcare access and outcomes, specifically maternal mortality, are related to racial category and to location in the US. We would be open to adding more datasets to our project as it develops and a need for additional data is found, for example, racial demographics of particular areas in the US (available on the Census website).
