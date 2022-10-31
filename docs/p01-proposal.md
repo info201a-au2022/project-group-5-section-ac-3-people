@@ -1,9 +1,8 @@
 ### Code Name: 
 
 # Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location
-### Anushka Damidi, Max Stewart (mzs11@uw.edu), Riley (rimintz@uw.edu)
-INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
-Autumn 2022
+### Anushka Damidi, Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)
+INFO-201: Technical Foundations of Informatics - The Information School - University of Washington, Autumn 2022
 
 # Abstract (Anushka)
 
@@ -25,12 +24,12 @@ We are interested in looking into healthcare access and outcome by a couple metr
 - Possible Benefits: Showing the racial groups and physical communities that recieve lackluster medical care may expose these inequities and encourage people (hospitals? The US govenment? Concerned citizens?) to make changes in our healthcare system.
 
 ## Research Questions (5-6 questions)
-Who has access to hospitals in the United States? Lack of hospital access can be a compounding factor leading to worse health outcomes, especially when low-income communities both lack healthcare access and are subject to compounding health risk factors, such as pollution and poverty.
-
-How does race affect the mortality rates of pregnant women in healthcare? Data has shown that women of color are receive less attentive care when compared to white women in the healthcare clinic, especially in the labor and delivery setting. What factors come into play here?
+- *Who has access to hospitals in the United States?* Lack of hospital access can be a compounding factor leading to worse health outcomes, especially when low-income communities both lack healthcare access and are subject to compounding health risk factors, such as pollution and poverty.
+- *How does race affect the mortality rates of pregnant women in healthcare?* Data has shown that women of color are receive less attentive care when compared to white women in the healthcare clinic, especially in the labor and delivery setting. *What factors come into play here?*
+- *How does location (we have data for location type) affect the mortality rates of pregnant women in healthcare?* Why is maternal mortality higher in some areas (lack of hospitals?)? Who is living in those areas?
 
 ## The Dataset
-So far, we have found 3 datasets that cover the following topics: Hospitals by location in US, maternal mortality by race, and maternal mortality by type of location (urban, rural, etc.). These datasets will give us an idea of how healthcare access and outcomes, specifically maternal mortality, are related to racial category and to location in the US. 
+So far, we have found 3 datasets that cover the following topics: Hospitals by location in US, maternal mortality by race, and maternal mortality by type of location (urban, rural, etc.). These datasets will give us an idea of how healthcare access and outcomes, specifically maternal mortality, are related to racial category and to location in the US. We would be open to adding more datasets to our project as it develops and a need for additional data is found, for example, racial demographics of particular areas in the US (available on the Census website).
 
 |   | Dataset  | Dataset  | Dataset  |
 | --- | --- | --- | --- |
@@ -48,6 +47,7 @@ Assuming our research questions are answered, the possible implications for tech
 ## Limitations (Anushka)
 
 ## Acknowledgements
+Thank you to our teammates, our TA Darren, and Prof. Winegarden!
 
 ## References *Put into APA(?) format tonight and alphabetize!
 
@@ -61,7 +61,5 @@ https://demo.datacenter.cmqcc.org/hospitals/1/reports/race_ethnicity
 
 https://www.cdc.gov/reproductivehealth/maternal-mortality/pregnancy-mortality-surveillance-system.htm
 
-
-
-
 ## Appendix A: Questions
+No questions at the moment!
