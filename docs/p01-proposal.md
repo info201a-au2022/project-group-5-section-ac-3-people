@@ -2,9 +2,9 @@
 
 # Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location
 
-## Anushka Damidi, Max Stewart (mzs11@uw.edu), Riley (rimintz@uw.edu)
-
-### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington， Autumn 2022
+### Anushka Damidi, Max Stewart (mzs11@uw.edu), Riley (rimintz@uw.edu)
+### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+### Autumn 2022
 
 # Abstract (Anushka)
 
@@ -13,6 +13,7 @@
 - POC
 - Minorities 
 - Healthcare Access
+- Maternal Mortality
 
 # Introduction (max)
 We are interested in looking into healthcare access and outcome by a couple metrics. We will look into disparities in maternal mortality by race, as well as by location type. We will also  look into hospital access by location. We would also be interested in looking into healthcare outcomes more broadly by race, although this data is difficult to find. Broadly, our project investigates which people in the USA have access to healthcare, and to favorable healthcare outcomes. 
@@ -25,12 +26,9 @@ We are interested in looking into healthcare access and outcome by a couple metr
 - Possible Benefits: Showing the racial groups and physical communities that recieve lackluster medical care may expose these inequities and encourage people (hospitals? The US govenment? Concerned citizens?) to make changes in our healthcare system.
 
 ## Research Questions (5-6 questions)
-
 Who has access to hospitals in the United States? Lack of hospital access can be a compounding factor leading to worse health outcomes, especially when low-income communities both lack healthcare access and are subject to compounding health risk factors, such as pollution and poverty.
 
 How does race affect the mortality rates of pregnant women in healthcare? Data has shown that women of color are receive less attentive care when compared to white women in the healthcare clinic, especially in the labor and delivery setting. What factors come into play here?
-
-
 
 ## The Dataset
 So far, we have found 3 datasets that cover the following topics: Hospitals by location in US, maternal mortality by race, and maternal mortality by type of location (urban, rural, etc.). These datasets will give us an idea of how healthcare access and outcomes, specifically maternal mortality, are related to racial category and to location in the US. 
@@ -39,6 +37,7 @@ So far, we have found 3 datasets that cover the following topics: Hospitals by l
 | --- | --- | --- | --- |
 | Num. Rows  |   |   |   |
 | Num. Columns  |   |   |   |
+
 Citations Here
 
 Info about the datasets here
@@ -51,8 +50,7 @@ Assuming our research questions are answered, the possible implications for tech
 
 ## Acknowledgements
 
-
-## References 
+## References *Put into APA(?) format tonight and alphabetize!
 
 https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations
 
