@@ -1,10 +1,9 @@
 ### Code Name: 
 
 # Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location
-
 ### Anushka Damidi, Max Stewart (mzs11@uw.edu), Riley (rimintz@uw.edu)
-### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
-### Autumn 2022
+INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+Autumn 2022
 
 # Abstract (Anushka)
 
