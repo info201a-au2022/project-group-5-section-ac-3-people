@@ -44,10 +44,11 @@ The hospital locations dataset is from Kaggle, a website for learning data scien
 ## Expected Implications
 Assuming our research questions are answered, the possible implications for technologists, designers, and policymakers are using this data to improve the medical experiences for people of color and better understand the limitations that emerge for people of color in healthcare. In recent years, this has become more of a wider discussed issue, but there is still major moves to be made. Hospitals can use this data and the web app we will create to make healthcare experiences impartial for all people regardless of their background, including but not limited to, ethnicity, gender, sexuality, economic status, or residence. Additionally, understanding where hospitals are located and who is able to access them increases the likelihood of making medical care equitable for all people. If hospitals and medical care was more attainable for people with low-income, there would be less fatalities and other negative consequences that are created when there is a gap in quality of healthcare. 
 
-## Limitations (Anushka)
+## Limitations
+One limitation is that areas with poverty and poor healthcare might not have proper records and data regarding maternal deaths which can skew the overall data and show incorrect information regarding the disparity between the races in healthcare. Another limitation is that we are only focusing on maternal mortality, which is a specific area in healthcare. Therefore, this will only show the lack of proper healthcare in this area, and the disparity might be larger in other specialties of healthcare. 
 
 ## Acknowledgements
-Thank you to our teammates, our TA Darren, and Prof. Winegarden!
+We would like to acknowledge our TA for helping us throughout this project. We would also like to acknowledge our classmates for sharing their ideas. 
 
 ## References
 
