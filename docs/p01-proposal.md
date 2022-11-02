@@ -1,8 +1,9 @@
 ### Code Name: Health-Disparities
 
 # Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location
-### Anushka Damidi (damidia@uw.edu), Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)
-INFO-201: Technical Foundations of Informatics - The Information School - University of Washington, Autumn 2022
+ Anushka Damidi (damidia@uw.edu), Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)
+### INFO-201: Technical Foundations of Informatics - The Information School - University of Washington
+Autumn 2022
 
 # Abstract
 Our project focuses on the disparities in maternal death and access to healthcare among women from various ethnicities. This project will shed light on the many ways that women of color are marginalized in the healthcare system and the improvements that can be made to address this issue. To address this, we plan to analyze data regarding maternal death rates among different ethnicities of women. 
