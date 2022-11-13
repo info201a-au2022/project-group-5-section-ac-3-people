@@ -1,7 +1,7 @@
 ---
-title: "Your Project Title"
-author: "project team members"
-date: "1/22/2022"
+title: "Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location"
+author: "Anushka Damidi (damidia@uw.edu), Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)"
+date: "11/13/2022"
 output: html_document
 ---
 
