@@ -1,3 +1,5 @@
-source("../data/pregnancy_related_mortality_ratio_by_race_ethnicity__2016_2018.csv")
-source("../data/pregnancy_related_mortality_ratio_by_urban_rural_classifications__2016_2018.csv")
-source("../data/us_hospital_locations.csv")
+source("../source/summary_info.R")
+library(tidyverse)
+
+hospital_info <- full_join(open_hospitals_per_state, hospital_owners_by_state)
+
