@@ -1,6 +1,28 @@
 source("../source/summary_info.R")
 library(ggplot2)
+<<<<<<< HEAD
 library(tidyverse)
+# Making state/owned by state gov't data frame
+view(hospital_owners_by_state)
+state_gov_hospitals <- data.frame(hospital_owners_by_state$STATE, hospital_owners_by_state$owner_state_govt)
+view(state_gov_hospitals)
+state_gov_hospitals <- state_gov_hospitals %>% 
+  rename(region = state)
+state_gov_hospitals <- state_gov_hospitals %>% 
+  rename(owned_by_state_govt = hospital_owners_by_state.owner_state_govt)
+view(state_gov_hospitals)
+=======
+
+
+world_shape <- map_data("world")
+view(world_shape)
+ggplot(world_shape) +
+  geom_polygon(
+    mapping = aes(x = long, y = lat, group = group),
+    color = "white",
+    size = .1
+  ) +
+  coord_map()
 
 # Attempting to make choropleth map of hospital locations
 state_shape <- map_data("state")
@@ -81,3 +103,4 @@ hospitals_map <- ggplot(state_shape_w_data) +
   scale_fill_continuous(low = "Red", high = "white") + 
   labs(fill = "Number of Open Hospitals") +
   blank_theme
+>>>>>>> 60e0a91899838e9f4e02abd45c19abf0a0bbfa9b
