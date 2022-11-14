@@ -9,16 +9,18 @@ output: html_document
 source("../source/summary_info.R")
 source("../source/summary_table.R")
 source("../source/chart_1_hospitals.R")
-source("../source/chart_2.R")
+source("../source/chart_2_state_government_owned_hospitals.R")
 source("../source/chart_3.R")
 library(tidyverse)
 library(knitr)
+library(ggplot2)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## "Dynamic Paragraph" *Replace with real header pls
 In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. 
-### Hospital summary:
+
+### Hospital summary: 
 
 
 ## Table: Number of Open Hospitals 
@@ -38,12 +40,8 @@ When you click the **Knit** button a document will be generated that includes bo
 summary(cars)
 ```
 
-## Including Plots
+## Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r hospital_chart, echo=FALSE}
+plot(hospitals_per_state_chart)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
