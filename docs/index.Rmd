@@ -20,28 +20,17 @@ knitr::opts_chunk$set(echo = FALSE)
 ## "Dynamic Paragraph" *Replace with real header pls
 In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. 
 
-### Hospital summary: 
-
-
 ## Table: Number of Open Hospitals 
 ```{r echo = FALSE}
 hospital_info <- hospital_info
 kable(hospital_info)
 ```
+### About This Table
 
-
-## ABOUT THIS FILE: 
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
 
 ## Plots
 
 ```{r fig.align='left', echo=FALSE, fig.width=16}
 plot(hospitals_per_state_chart_w_owner)
 ```
+

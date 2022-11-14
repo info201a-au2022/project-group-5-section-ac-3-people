@@ -97,7 +97,7 @@ owner_types_vector <- us_hospital_locations %>%
  # Returns "hospital_info" df 
  hospital_info <- full_join(open_hospitals_per_state, hospital_owners_by_state)
  
- # 
+ # Below returns the dataframe used in the rainbow bar chart for hospital locations and owners
  hospitals_per_state_chart_df <- us_hospital_locations %>% 
    filter(STATUS == "OPEN") %>% 
    group_by(STATE) %>% 
@@ -112,7 +112,5 @@ owner_types_vector <- us_hospital_locations %>%
      num_hospitals = n
    )
    
- 
- # The following 
  
  
