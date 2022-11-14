@@ -1,5 +1,5 @@
-maternal_mortality_race <- read.csv("../data/maternal_mortality_race.csv")
-maternal_mortality_location <- read.csv("../data/maternal_mortality_urban_rural.csv")
+maternal_mortality_race_2016_thru_2018 <- read.csv("../data/maternal_mortality_race.csv")
+maternal_mortality_location_2016_thru_2018 <- read.csv("../data/maternal_mortality_urban_rural.csv")
 us_hospital_locations <- read.csv("../data/us_hospital_locations.csv")
 library(tidyverse)
 
@@ -70,7 +70,7 @@ owner_types_vector <- us_hospital_locations %>%
    count() %>% 
    summarise(owner_state_govt = n)
  
- hospital_owners_by_state_c <- full_join(fed_govt, state_govt, by = "STATE")
+ hospital_owners_by_state_c <- full_join(owner_fed_govt, owner_state_govt, by = "STATE")
  
  owner_dist_govt <- us_hospital_locations %>% 
    group_by(STATE) %>% 
@@ -87,7 +87,7 @@ owner_types_vector <- us_hospital_locations %>%
    count() %>% 
    summarise(owner_local_govt = n)
  
- hospital_owners_by_state_d <- full_join(dist_govt, local_govt, by = "STATE")
+ hospital_owners_by_state_d <- full_join(owner_dist_govt, owner_local_govt, by = "STATE")
  
  hospital_owners_by_state_e <- full_join(hospital_owners_by_state_a, hospital_owners_by_state_b, by = "STATE")
  hospital_owners_by_state_f <- full_join(hospital_owners_by_state_c, hospital_owners_by_state_d, by = "STATE")

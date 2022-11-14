@@ -6,7 +6,14 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+source("../source/summary_info.R")
+source("../source/summary_table.R")
+source("../source/chart_1_hospitals.R")
+source("../source/chart_2.R")
+source("../source/chart_3.R")
+library(tidyverse)
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## "Dynamic Paragraph" *Replace with real header pls
@@ -14,23 +21,12 @@ In our exploratory analysis, we looked into the information in the three .csv fi
 ### Hospital summary:
 
 
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/summary_info.R")
-source("../source/summary_table.R")
+## Table: Number of Open Hospitals 
+```{r hospital_table, echo = FALSE}
+hospital_info <- hospital_info
+kable(hospital_info)
 ```
 
-### Example 2: Initialize a variable and then use it
-```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
-```
-
-> `r msg` Hope you have a good day!! 
 
 ## ABOUT THIS FILE: 
 

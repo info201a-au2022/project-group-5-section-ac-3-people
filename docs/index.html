@@ -359,34 +359,729 @@ Stewart (<a href="mailto:mzs11@uw.edu" class="email">mzs11@uw.edu</a>)</h4>
 </div>
 
 
-<div id="what-is-this-file-for" class="section level2">
-<h2>What is this file for?</h2>
-<ul>
-<li><p>This file will eventually become your project report for
-<strong>P02: Exploratory Data Analysis</strong>. Specifically, you will
-write rmarkdown to report your exploratory data analysis.</p></li>
-<li><p>Please see Canvas for more details.</p></li>
-</ul>
+<div id="dynamic-paragraph-replace-with-real-header-pls" class="section level2">
+<h2>“Dynamic Paragraph” *Replace with real header pls</h2>
+<p>In our exploratory analysis, we looked into the information in the
+three .csv files we’ve already selected. These statistics are a good
+start, but we may need to supplement our analysis with other data in
+order to connect our areas of interest. ### Hospital summary:</p>
 </div>
-<div id="accessing-the-source-directory" class="section level2">
-<h2>ACCESSING THE /source DIRECTORY</h2>
-<div id="example-1-source-some-code-and-run-a-function" class="section level3">
-<h3>Example 1: Source some code and run a function</h3>
-<pre class="r"><code># Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then &quot;source&quot; an R file (data_access.R)
-source(&quot;../source/data_access.R&quot;)
-data_access_test()</code></pre>
-<pre><code>## [1] &quot;Hello: World!&quot;</code></pre>
-</div>
-<div id="example-2-initialize-a-variable-and-then-use-it" class="section level3">
-<h3>Example 2: Initialize a variable and then use it</h3>
-<pre class="r"><code># Example 1: This function was &quot;sourced&quot; above
-msg &lt;- data_access_test(&quot; Morgan!&quot;)</code></pre>
-<blockquote>
-<p>Hello: Morgan! Hope you have a good day!!</p>
-</blockquote>
-</div>
+<div id="table-number-of-open-hospitals" class="section level2">
+<h2>Table: Number of Open Hospitals</h2>
+<table style="width:100%;">
+<colgroup>
+<col width="4%" />
+<col width="10%" />
+<col width="13%" />
+<col width="12%" />
+<col width="6%" />
+<col width="10%" />
+<col width="10%" />
+<col width="11%" />
+<col width="10%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">STATE</th>
+<th align="right">open_hospitals</th>
+<th align="right">owner_not_available</th>
+<th align="right">owner_proprietary</th>
+<th align="right">owner_llc</th>
+<th align="right">owner_nonprofit</th>
+<th align="right">owner_fed_govt</th>
+<th align="right">owner_state_govt</th>
+<th align="right">owner_dist_govt</th>
+<th align="right">owner_local_govt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">AK</td>
+<td align="right">32</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">12</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">AL</td>
+<td align="right">130</td>
+<td align="right">3</td>
+<td align="right">62</td>
+<td align="right">NA</td>
+<td align="right">24</td>
+<td align="right">6</td>
+<td align="right">6</td>
+<td align="right">26</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">AR</td>
+<td align="right">116</td>
+<td align="right">19</td>
+<td align="right">35</td>
+<td align="right">NA</td>
+<td align="right">48</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">AS</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">AZ</td>
+<td align="right">144</td>
+<td align="right">43</td>
+<td align="right">40</td>
+<td align="right">NA</td>
+<td align="right">47</td>
+<td align="right">15</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">CA</td>
+<td align="right">550</td>
+<td align="right">19</td>
+<td align="right">147</td>
+<td align="right">NA</td>
+<td align="right">277</td>
+<td align="right">19</td>
+<td align="right">11</td>
+<td align="right">50</td>
+<td align="right">42</td>
+</tr>
+<tr class="odd">
+<td align="left">CO</td>
+<td align="right">118</td>
+<td align="right">11</td>
+<td align="right">34</td>
+<td align="right">NA</td>
+<td align="right">48</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">17</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">CT</td>
+<td align="right">42</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">35</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">DC</td>
+<td align="right">14</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">DE</td>
+<td align="right">15</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">FL</td>
+<td align="right">345</td>
+<td align="right">27</td>
+<td align="right">156</td>
+<td align="right">NA</td>
+<td align="right">124</td>
+<td align="right">12</td>
+<td align="right">5</td>
+<td align="right">28</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">GA</td>
+<td align="right">207</td>
+<td align="right">47</td>
+<td align="right">56</td>
+<td align="right">NA</td>
+<td align="right">62</td>
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="right">34</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">GU</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">HI</td>
+<td align="right">30</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">17</td>
+<td align="right">3</td>
+<td align="right">11</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">IA</td>
+<td align="right">134</td>
+<td align="right">22</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">49</td>
+<td align="right">4</td>
+<td align="right">7</td>
+<td align="right">NA</td>
+<td align="right">54</td>
+</tr>
+<tr class="even">
+<td align="left">ID</td>
+<td align="right">54</td>
+<td align="right">2</td>
+<td align="right">12</td>
+<td align="right">NA</td>
+<td align="right">20</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">IL</td>
+<td align="right">220</td>
+<td align="right">15</td>
+<td align="right">27</td>
+<td align="right">1</td>
+<td align="right">151</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">IN</td>
+<td align="right">184</td>
+<td align="right">10</td>
+<td align="right">55</td>
+<td align="right">NA</td>
+<td align="right">83</td>
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="left">KS</td>
+<td align="right">165</td>
+<td align="right">8</td>
+<td align="right">34</td>
+<td align="right">NA</td>
+<td align="right">53</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">19</td>
+<td align="right">49</td>
+</tr>
+<tr class="even">
+<td align="left">KY</td>
+<td align="right">128</td>
+<td align="right">NA</td>
+<td align="right">28</td>
+<td align="right">1</td>
+<td align="right">80</td>
+<td align="right">6</td>
+<td align="right">7</td>
+<td align="right">3</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">LA</td>
+<td align="right">244</td>
+<td align="right">43</td>
+<td align="right">113</td>
+<td align="right">NA</td>
+<td align="right">45</td>
+<td align="right">4</td>
+<td align="right">11</td>
+<td align="right">39</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">MA</td>
+<td align="right">135</td>
+<td align="right">1</td>
+<td align="right">36</td>
+<td align="right">NA</td>
+<td align="right">82</td>
+<td align="right">6</td>
+<td align="right">9</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">MD</td>
+<td align="right">71</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">54</td>
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">ME</td>
+<td align="right">42</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">46</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">MI</td>
+<td align="right">176</td>
+<td align="right">2</td>
+<td align="right">28</td>
+<td align="right">NA</td>
+<td align="right">139</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">3</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">MN</td>
+<td align="right">137</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">106</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">15</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">MO</td>
+<td align="right">170</td>
+<td align="right">7</td>
+<td align="right">44</td>
+<td align="right">NA</td>
+<td align="right">84</td>
+<td align="right">6</td>
+<td align="right">11</td>
+<td align="right">9</td>
+<td align="right">19</td>
+</tr>
+<tr class="even">
+<td align="left">MP</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">MS</td>
+<td align="right">118</td>
+<td align="right">2</td>
+<td align="right">37</td>
+<td align="right">NA</td>
+<td align="right">35</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">1</td>
+<td align="right">44</td>
+</tr>
+<tr class="even">
+<td align="left">MT</td>
+<td align="right">69</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">47</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">NC</td>
+<td align="right">152</td>
+<td align="right">5</td>
+<td align="right">25</td>
+<td align="right">NA</td>
+<td align="right">92</td>
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">18</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">ND</td>
+<td align="right">57</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">NA</td>
+<td align="right">47</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">NE</td>
+<td align="right">108</td>
+<td align="right">4</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">58</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">7</td>
+<td align="right">29</td>
+</tr>
+<tr class="even">
+<td align="left">NH</td>
+<td align="right">37</td>
+<td align="right">2</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">25</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">NJ</td>
+<td align="right">135</td>
+<td align="right">3</td>
+<td align="right">47</td>
+<td align="right">NA</td>
+<td align="right">82</td>
+<td align="right">2</td>
+<td align="right">10</td>
+<td align="right">NA</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">NM</td>
+<td align="right">63</td>
+<td align="right">1</td>
+<td align="right">23</td>
+<td align="right">NA</td>
+<td align="right">18</td>
+<td align="right">9</td>
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">NV</td>
+<td align="right">75</td>
+<td align="right">11</td>
+<td align="right">37</td>
+<td align="right">NA</td>
+<td align="right">18</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">NY</td>
+<td align="right">263</td>
+<td align="right">10</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">199</td>
+<td align="right">14</td>
+<td align="right">25</td>
+<td align="right">5</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">OH</td>
+<td align="right">277</td>
+<td align="right">17</td>
+<td align="right">70</td>
+<td align="right">NA</td>
+<td align="right">176</td>
+<td align="right">6</td>
+<td align="right">10</td>
+<td align="right">4</td>
+<td align="right">11</td>
+</tr>
+<tr class="even">
+<td align="left">OK</td>
+<td align="right">163</td>
+<td align="right">6</td>
+<td align="right">61</td>
+<td align="right">NA</td>
+<td align="right">44</td>
+<td align="right">9</td>
+<td align="right">8</td>
+<td align="right">23</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">OR</td>
+<td align="right">70</td>
+<td align="right">6</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">47</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">PA</td>
+<td align="right">266</td>
+<td align="right">8</td>
+<td align="right">83</td>
+<td align="right">NA</td>
+<td align="right">170</td>
+<td align="right">9</td>
+<td align="right">8</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">PR</td>
+<td align="right">73</td>
+<td align="right">29</td>
+<td align="right">26</td>
+<td align="right">NA</td>
+<td align="right">15</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">PW</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">RI</td>
+<td align="right">20</td>
+<td align="right">NA</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">15</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">SC</td>
+<td align="right">108</td>
+<td align="right">1</td>
+<td align="right">43</td>
+<td align="right">NA</td>
+<td align="right">33</td>
+<td align="right">4</td>
+<td align="right">13</td>
+<td align="right">7</td>
+<td align="right">11</td>
+</tr>
+<tr class="odd">
+<td align="left">SD</td>
+<td align="right">72</td>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">NA</td>
+<td align="right">52</td>
+<td align="right">7</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">TN</td>
+<td align="right">156</td>
+<td align="right">NA</td>
+<td align="right">74</td>
+<td align="right">NA</td>
+<td align="right">70</td>
+<td align="right">4</td>
+<td align="right">NA</td>
+<td align="right">10</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">TX</td>
+<td align="right">768</td>
+<td align="right">2</td>
+<td align="right">455</td>
+<td align="right">NA</td>
+<td align="right">215</td>
+<td align="right">14</td>
+<td align="right">16</td>
+<td align="right">89</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">UT</td>
+<td align="right">71</td>
+<td align="right">7</td>
+<td align="right">26</td>
+<td align="right">NA</td>
+<td align="right">27</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">VA</td>
+<td align="right">133</td>
+<td align="right">7</td>
+<td align="right">38</td>
+<td align="right">NA</td>
+<td align="right">78</td>
+<td align="right">7</td>
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">VI</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">VT</td>
+<td align="right">17</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">15</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">WA</td>
+<td align="right">124</td>
+<td align="right">NA</td>
+<td align="right">17</td>
+<td align="right">NA</td>
+<td align="right">56</td>
+<td align="right">11</td>
+<td align="right">4</td>
+<td align="right">42</td>
+<td align="right">2</td>
+</tr>
+<tr class="odd">
+<td align="left">WI</td>
+<td align="right">165</td>
+<td align="right">12</td>
+<td align="right">10</td>
+<td align="right">NA</td>
+<td align="right">134</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">NA</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">WV</td>
+<td align="right">70</td>
+<td align="right">2</td>
+<td align="right">19</td>
+<td align="right">NA</td>
+<td align="right">36</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">NA</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">WY</td>
+<td align="right">36</td>
+<td align="right">NA</td>
+<td align="right">9</td>
+<td align="right">NA</td>
+<td align="right">9</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="about-this-file" class="section level2">
 <h2>ABOUT THIS FILE:</h2>
@@ -397,7 +1092,6 @@ on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http:
 generated that includes both content as well as the output of any
 embedded R code chunks within the document. You can embed an R code
 chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
 <pre><code>##      speed           dist       
 ##  Min.   : 4.0   Min.   :  2.00  
 ##  1st Qu.:12.0   1st Qu.: 26.00  
