@@ -1,4 +1,7 @@
+source("../source/summary_info.R")
 library(ggplot2)
+
+
 world_shape <- map_data("world")
 view(world_shape)
 ggplot(world_shape) +
@@ -18,7 +21,7 @@ state_shape_w_data <- state_shape %>%
   mutate(across('STATE', str_replace, 'arizona', 'AZ')) %>%  #2
   mutate(across('STATE', str_replace, 'arkansas', 'AK')) %>%  #3
   mutate(across('STATE', str_replace, 'california', 'CA')) %>%  #4
-  mutate(across('STATE', str_replace, 'california', 'CA')) %>%  #5
+  mutate(across('STATE', str_replace, 'colorado', 'CO')) %>%  #5
   mutate(across('STATE', str_replace, 'california', 'CA')) %>%  #6
   mutate(across('STATE', str_replace, 'california', 'CA')) %>%  #7
   mutate(across('STATE', str_replace, 'california', 'CA')) %>%  #8
@@ -81,9 +84,10 @@ blank_theme <- theme_bw()+
 hospitals_map <- ggplot(state_shape_w_data) +
   geom_polygon(
     mapping = aes(x = long, y = lat, group = group, fill = open_hospitals),
-    color = "white",
+    color = "black",
     size = .1
   ) + 
   coord_map()+
   scale_fill_continuous(low = "Red", high = "white") + 
-  labs(fill = "Number of Open Hospitals") 
+  labs(fill = "Number of Open Hospitals") +
+  blank_theme
