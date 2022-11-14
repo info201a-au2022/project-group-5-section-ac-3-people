@@ -10,3 +10,8 @@ hospitals_per_state_chart <- ggplot(data = hospital_info) +
   scale_y_continuous()
 
 
+hospitals_per_state_chart_w_owner <- ggplot(data = hospitals_per_state_chart_df) +
+  geom_col(
+    mapping = aes(x = STATE, y = num_hospitals, fill = owner)
+  ) + 
+  scale_y_continuous()

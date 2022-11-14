@@ -94,6 +94,25 @@ owner_types_vector <- us_hospital_locations %>%
  hospital_owners_by_state <- full_join(hospital_owners_by_state_e, hospital_owners_by_state_f, by = "STATE")
  ## Returns the dataframe hospital_owners_by_state
  
+ # Returns "hospital_info" df 
+ hospital_info <- full_join(open_hospitals_per_state, hospital_owners_by_state)
+ 
+ # 
+ hospitals_per_state_chart_df <- us_hospital_locations %>% 
+   filter(STATUS == "OPEN") %>% 
+   group_by(STATE) %>% 
+   summarise(
+     state = STATE,
+     owner = OWNER
+   ) %>% 
+   count(owner) %>% 
+   summarise(
+     state = STATE,
+     owner,
+     num_hospitals = n
+   )
+   
+ 
  # The following 
  
  
