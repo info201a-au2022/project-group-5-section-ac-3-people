@@ -9,7 +9,7 @@ output: html_document
 source("../source/summary_info.R")
 source("../source/summary_table.R")
 source("../source/chart_1_hospitals.R")
-source("../source/chart_2_state_government_owned_hospitals.R")
+source("../source/chart_2_hospitals_map.R")
 source("../source/chart_3.R")
 library(tidyverse)
 library(knitr)
@@ -17,7 +17,7 @@ library(ggplot2)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## "Dynamic Paragraph" *Replace with real header pls
+## Dynamic Paragraph *pls replace w better title here
 In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. 
 
 ## Table: Number of Open Hospitals 
@@ -33,4 +33,10 @@ kable(hospital_info)
 ```{r fig.align='left', echo=FALSE, fig.width=16}
 plot(hospitals_per_state_chart_w_owner)
 ```
+
+
+```{r fig.align='left', echo = FALSE, fig.width=16, fig.height=10}
+plot(hospitals_map)
+```
+
 
