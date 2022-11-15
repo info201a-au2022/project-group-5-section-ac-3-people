@@ -21,8 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ## Exploratory Analysis Findings
-
-In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. EXAMPLE: Washington State has `r num_hospitals_in_wa` open hospitals.
+This project will be focusing on the disparities in maternal death and the lack of proper access to healthcare that women from various ethnicities might face. Women of color are marginalized in the healthcare system and this is shown through our sources and the data that was collected around the differing maternal mortality rates based on ethnicity and location. Our sources have data focusing on maternal mortality by race, maternal mortality by location and hospitals by location. Throughout these various data sets, there is a clear distinction between the positive effects of the healthcare system on the different races. For example, there were 16.9 pregnancy related deaths per 100,000 deaths in 2016, 17.3 deaths in 2017 and 17.3 deaths in 2018. However, of those deaths, 41.4 percent were of Non-hispanic Black heritage, and 26.5 percent were of American Indian or Alaskan Native heritage, while only 13.7 percent of those deaths were of White heritage. This shows the drastic difference between maternal mortality rate between the races and how people of certain ethnicities are greatly disadvantaged and are lacking proper care. 
 
 ## Table: Number of Open Hospitals
 
