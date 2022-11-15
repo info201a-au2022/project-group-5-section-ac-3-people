@@ -116,7 +116,11 @@ owner_types_vector <- us_hospital_locations %>%
  num_hospitals_in_wa <- hospital_info %>% 
    filter(STATE == "WA") %>% 
    pull(open_hospitals)
-   
+ 
+ # Maternal mortality by race dataframe
+ pregnancy_related_mortality_ratio <- c(41.4, 26.5, 14.1, 13.7, 11.2)
+ race_ethnicity <- c("Non-Hispanic Black", "Non-Hispanic American Indian or Alaskan Native", "Non-Hispanic Asian or Pacific Islander", "Non-Hispanic White", "Hispanic")
+ maternal_mortality_race_df <- data.frame(pregnancy_related_mortality_ratio, race_ethnicity)
  
  
  

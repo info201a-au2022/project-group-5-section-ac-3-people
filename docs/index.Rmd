@@ -54,3 +54,12 @@ plot(hospitals_map)
 
 ### About this plot
 We included this chart because our data
+
+```{r echo = FALSE}
+plot(maternal_mortality_by_race_chart)
+```
+
+### About This Plot
+
+
+
