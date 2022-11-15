@@ -10,22 +10,31 @@ source("../source/summary_info.R")
 source("../source/summary_table.R")
 source("../source/chart_1_hospitals.R")
 source("../source/chart_2_hospitals_map.R")
-source("../source/chart_3.R")
+source("../source/chart_3_maternal_mortality.R")
 library(tidyverse)
 library(knitr)
 library(ggplot2)
 knitr::opts_chunk$set(echo = FALSE)
+
+# dynamic paragraph variables:
+
 ```
 
 ## Dynamic Paragraph *pls replace w better title here
-In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. 
+In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. EXAMPLE: Washington State has `r num_hospitals_in_wa` open hospitals.
 
 ## Table: Number of Open Hospitals 
-```{r echo = FALSE}
-hospital_info <- hospital_info
-kable(hospital_info)
+```{r fig.align = 'left', echo = FALSE, fig.width=16}
+knitr::kable(
+  hospital_info,
+  format = "simple",
+  col.names = c("State","Number Open Hospitals","Owner Unavailable","Owner: Proprietary","Owner: LLC","Owner: Non-Profit","Owner: Federal Govt.","Owner: State Govt.","Owner: District/Authority Govt.","Owner: Local Govt."),
+  align = "llllllllll",
+  caption = "This table displays the total number of open hospitals in each state, U.S. territory, and D.C., as well as how many of them are owned by each type of owner.",
+  )
 ```
-### About This Table
+
+### About this table:
 
 
 ## Plots
@@ -34,9 +43,14 @@ kable(hospital_info)
 plot(hospitals_per_state_chart_w_owner)
 ```
 
+### About this plot
+blah blah blah
+
 
 ```{r fig.align='left', echo = FALSE, fig.width=16, fig.height=10}
 plot(hospitals_map)
 ```
+
+### About this plot
 
 

@@ -111,6 +111,12 @@ owner_types_vector <- us_hospital_locations %>%
      owner,
      num_hospitals = n
    )
+ 
+ # Variables for dynamic paragraph:
+ num_hospitals_in_wa <- hospital_info %>% 
+   filter(STATE == "WA") %>% 
+   pull(open_hospitals)
    
+ 
  
  
