@@ -53,7 +53,7 @@ plot(hospitals_map)
 ```
 
 ### About this plot
-We included this chart because our data
+We included this chart because we wanted a way to easily view the number of open hospitals in each state. A map is the best way to display this information because darker red signifies a higher number of open hospitals and lighter red signifies a lower number of open hospitals. With this chart, we can quickly look and see the highs and lows. For example, Texas has the lowest amount of open hospitals in the country. Note: West Virginia's color coding does not show up on the map regardless of the state name or abbreviation that is written. 
 
 ```{r echo = FALSE}
 plot(maternal_mortality_by_race_chart)
