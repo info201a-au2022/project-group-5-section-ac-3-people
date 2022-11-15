@@ -116,6 +116,7 @@ owner_types_vector <- us_hospital_locations %>%
  num_hospitals_in_wa <- hospital_info %>% 
    filter(STATE == "WA") %>% 
    pull(open_hospitals)
+ # to reference this in index.Rmd, type this: `r variable_name`
  
  # Maternal mortality by race dataframe
  pregnancy_related_mortality_ratio <- c(41.4, 26.5, 14.1, 13.7, 11.2)
