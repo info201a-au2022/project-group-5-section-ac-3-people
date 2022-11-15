@@ -20,10 +20,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-## Dynamic Paragraph *pls replace w better title here
+## Dynamic Paragraph \*pls replace w better title here
+
 In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. EXAMPLE: Washington State has `r num_hospitals_in_wa` open hospitals.
 
-## Table: Number of Open Hospitals 
+## Table: Number of Open Hospitals
+
 ```{r fig.align = 'left', echo = FALSE, fig.width=16}
 knitr::kable(
   hospital_info,
@@ -36,7 +38,6 @@ knitr::kable(
 
 ### About this table:
 
-
 ## Plots
 
 ```{r fig.align='left', echo=FALSE, fig.width=16}
@@ -44,13 +45,12 @@ plot(hospitals_per_state_chart_w_owner)
 ```
 
 ### About this plot
-blah blah blah
 
+blah blah blah
 
 ```{r fig.align='left', echo = FALSE, fig.width=16, fig.height=10}
 plot(hospitals_map)
 ```
 
 ### About this plot
-
-
+We included this chart because our data
