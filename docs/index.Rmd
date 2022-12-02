@@ -1,7 +1,7 @@
 ---
-title: "Working Title: Exploration of Disparities in Healthcare Access in the USA by Race and Location"
+title: "Exploration of Disparities in Healthcare Access in the USA by Race and Location"
 author: "Anushka Damidi (damidia@uw.edu), Riley Mintz (rimintz@uw.edu) & Max Stewart (mzs11@uw.edu)"
-date: "11/13/2022"
+date: "11/14/2022"
 output: html_document
 ---
 
@@ -20,9 +20,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-## Dynamic Paragraph \*pls replace w better title here
-
-In our exploratory analysis, we looked into the information in the three .csv files we've already selected. These statistics are a good start, but we may need to supplement our analysis with other data in order to connect our areas of interest. EXAMPLE: Washington State has `r num_hospitals_in_wa` open hospitals.
+## Exploratory Analysis Findings
+This project will be focusing on the disparities in maternal death and the lack of proper access to healthcare that women from various ethnicities might face. Women of color are marginalized in the healthcare system and this is shown through our sources and the data that was collected around the differing maternal mortality rates based on ethnicity and location. Our sources have data focusing on maternal mortality by race, maternal mortality by location and hospitals by location. Throughout these various data sets, there is a clear distinction between the positive effects of the healthcare system on the different races. For example, there were 16.9 pregnancy related deaths per 100,000 deaths in 2016, 17.3 deaths in 2017 and 17.3 deaths in 2018. However, of those deaths, 41.4 percent were of Non-hispanic Black heritage, and 26.5 percent were of American Indian or Alaskan Native heritage, while only 13.7 percent of those deaths were of White heritage. This shows the drastic difference between maternal mortality rate between the races and how people of certain ethnicities are greatly disadvantaged and are lacking proper care. 
 
 ## Table: Number of Open Hospitals
 
@@ -47,8 +46,7 @@ plot(hospitals_per_state_chart_w_owner)
 ```
 
 ### About this plot
-
-blah blah blah
+This plot lets viewers see the numbers of open hospitals within each state, as well as who/what owns them. It is a good fit for our data because each state is clearly shown, with its number of hospitals shown on the y-axis and the index explaining the colors that correlate with the owner of the hospital. Using this chart, we can conclude that Texas and California have the highest number of open hospitals in the United States because their bars are much higher than the rest. 
 
 ```{r fig.align='left', echo = FALSE, fig.width=16, fig.height=10}
 plot(hospitals_map)
@@ -62,6 +60,4 @@ plot(maternal_mortality_by_race_chart)
 ```
 
 ### About This Plot
-
-
-
+In this plot, we see how race and ethnicity are related to pregnancy related mortality data. We believe this chart would work well with the data we have wrangled because it shows exactly what is needed to be understood by the viewer. For example, just by glancing at the chart, we can see that non-Hispanic Black people have the highest pregnancy related mortality ratio, and Hispanic people with the lowest. 

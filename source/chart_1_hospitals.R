@@ -15,3 +15,4 @@ hospitals_per_state_chart_w_owner <- ggplot(data = hospitals_per_state_chart_df)
     mapping = aes(x = STATE, y = num_hospitals, fill = owner)
   ) + 
   scale_y_continuous()
+
