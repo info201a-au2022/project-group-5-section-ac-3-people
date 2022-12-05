@@ -88,7 +88,7 @@ rucc_tidy <- RUCC_codes %>%
     pop = Population_2010
   )  %>% 
   group_by(state) %>% 
-  count(rucc, 1, 2, 3, 4, 5, 6, 7, 8)
+  pivot_wider(names_from = rucc, values_from = rucc)
 
 
 rucc_coords <- state_shape %>% 
