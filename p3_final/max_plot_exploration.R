@@ -151,3 +151,4 @@ rucc_codes_map <- ggplot(rucc_coords) +
   coord_map() +
   labs(fill = "") +
   blank_theme
+
