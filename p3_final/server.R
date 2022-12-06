@@ -5,7 +5,6 @@ library("ggplot2")
 library("leaflet")
 library("plotly")
 
-
 # Setup: Data
 hospital_locations <- read.csv("../data/us_hospital_locations.csv")
 maternal_mort <- read.csv("../data/maternal_mortality_urban_rural.csv")
@@ -155,3 +154,4 @@ server <- function(input, output) {
   })
   
 }
+

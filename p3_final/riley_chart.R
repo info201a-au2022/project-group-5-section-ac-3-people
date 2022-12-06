@@ -78,8 +78,7 @@ maternal_mort_by_state_chart <- plot_ly(
   x = ~state,
   y = ~maternalMortalityRate,
   type = "bar",
-  alpha = .7,
-  color= "red"
+  alpha = .7
 ) %>%
   layout(
     title = "Maternal Mortality Rate by State",
@@ -89,8 +88,6 @@ maternal_mort_by_state_chart <- plot_ly(
 
 # server function for real thingy
 output$maternal_mort <- renderPlotly({
-  data <- maternal_mort_by_state %>% 
-    filter(maternalMortalityRate >= input$maternalMortalityRate)
   maternal_mort_by_state_chart <- plot_ly(
     data = maternal_mort_by_state,
     x = ~state,
