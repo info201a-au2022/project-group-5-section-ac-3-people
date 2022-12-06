@@ -17,6 +17,14 @@ maternal_mort_by_state <- read.csv("../data/maternal_mort_state.csv")
 # ---
 # DATA WRANGLING
 
+# Maternal Mort Test
+maternal_mort_tidy <- maternal_mort_by_state %>% 
+  left_join(state_abb, by = c("state" = "name")) %>% 
+  summarise(
+    state,
+    abbreviation = 
+  )
+
 # Default Map Shape
 state_shape <- map_data("state") %>% 
   rename(state = region)
@@ -153,3 +161,5 @@ rucc_codes_map <- ggplot(rucc_coords) +
   labs(fill = "") +
   blank_theme
 
+maternal_mort_by_state_chart_test <- ggplot(maternal_mort_by_state) +
+  geom_col(mapping = aes(x = state, y = maternalMortalityRate))

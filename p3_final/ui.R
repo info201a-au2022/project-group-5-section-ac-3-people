@@ -1,9 +1,11 @@
 library(shiny)
+library(shinythemes)
 
 # maternal mortality by state bar chart 
 introduction <- tabPanel(
   "introduction",
-  titlePanel("Introduction")
+  titlePanel("Introduction"), 
+  p("Intro paragraoh HERE!")
 )
   
 hospital_chloropleth <- tabPanel(
@@ -20,7 +22,8 @@ hospital_chloropleth <- tabPanel(
     ),
     mainPanel(
       h3("Map of State Total Hospitals or Hospital Beds"),
-      plotlyOutput("num_hospitals_map")
+      plotlyOutput("num_hospitals_map"),
+      p("Description HERE!")
     )
   )
 )
@@ -40,36 +43,45 @@ location_leaflet <- tabPanel(
     ),
     mainPanel(
       h3("Name, Location, and Number of Beds of US Hospitals"),
-      leafletOutput("leaflet")
-      
+      leafletOutput("leaflet"),
+      p("Description HERE!")
     )
   )
 )
 
-page_three <- tabPanel(
-  "Page Three",
-  sidebarLayout(
-    sidebarPanel(
-      # Maternal Mort Chart Input
-      sliderInput(
-        inputId = "maternalMortalityRate",
-        label = "Choose the rate for the states you want to be displayed",
-        min = 0,
-        max = 60,
-        value = 30
-      ),
-    ),
-    mainPanel(
-      h3("Some Title Or Something"),
-      p()
+maternal_mort_main <- tabPanel(
+  "Maternal Mortality by State",
+  align = "center",
+  plotlyOutput("maternal_mort", width = "100%", height = "auto"),
+  sliderInput(
+    inputId = "mort_input",
+    label = "Choose the rate for the states you want to be displayed",
+    min = 4,
+    max = 59,
+    value = 59
+  ), 
+  p("Description HERE!")
     )
-  )
+
+summary <- tabPanel(
+  "summary",
+  titlePanel("Key Takeaways:"), 
+  p("paragraoh HERE!")
+)
+
+report <- tabPanel(
+  "report",
+  titlePanel("Report Page"), 
+  p("paragraoh HERE!")
 )
 
 ui <- navbarPage(
+  theme = shinytheme("sandstone"),
   "P3 Final",
   introduction,
   hospital_chloropleth,
   location_leaflet,
-  page_three
+  maternal_mort_main, 
+  summary, 
+  report
 )

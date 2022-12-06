@@ -98,11 +98,11 @@ server <- function(input, output) {
     ggplot <- ggplot(hospitals_and_beds_per_state) +
     geom_polygon(
       mapping = aes(x = long, y = lat, group = group, fill = .data[[input$num_hospitals_input]]),
-      color = "white",
+      color = "black",
       size = .1
     ) +
     coord_map() +
-    scale_fill_continuous(low = "white", high = "blue") +
+    scale_fill_continuous(low = "white", high = "#3CE1E9") +
     labs(fill = paste("Total", input$num_hospitals_input, "in State", sep = " ")) +
     blank_theme
     
@@ -125,12 +125,33 @@ server <- function(input, output) {
         radius = ~pt_size,
         stroke = FALSE,
         fill = TRUE,
-        fillColor = "blue",
+        fillColor = "#3CE1E9",
         fillOpacity = .3,
         label = ~label
       )
     
     return(hospital_locations_leaflet)
+  })
+  
+  output$maternal_mort <- renderPlotly({
+    
+    data <- maternal_mort_by_state %>% 
+      filter(maternalMortalityRate <= input$mort_input)
+    
+    maternal_mort_by_state_chart <- plot_ly(
+      data = data,
+      x = ~state,
+      y = ~maternalMortalityRate,
+      type = "bar",
+      alpha = .7
+    ) %>%
+      layout(
+        title = "Maternal Mortality Rate by State",
+        xaxis = list(title = "State"),
+        yaxis = list(title = "Maternal Mortality Rate")
+      )
+    
+    return(maternal_mort_by_state_chart)
   })
   
 }
