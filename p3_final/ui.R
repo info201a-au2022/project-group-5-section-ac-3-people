@@ -4,8 +4,18 @@ library(shinythemes)
 # maternal mortality by state bar chart 
 introduction <- tabPanel(
   "introduction",
-  titlePanel("Introduction"), 
-  p("Intro paragraoh HERE!")
+  titlePanel("Why is understanding healthcare access important?"), 
+  p("The following data visualizations encapsulate the ongoing crisis of limited
+    healthcare access in the United States. Our group was interested in investigating
+    where hospital access is more accessible based on hospital population and number
+    of hospital beds available. Additionally, we decided to look into maternal mortality
+    as a proxy for our research on hospital accessibility. For context, maternal mortality
+    is defined as death while pregnant or within 42 days of the end of pregnancy from
+    causes related to the pregnancy or its management. Maternal mortality typically arises from
+    health problems of the woman, but can almost always be resolved by being seen by the appropriate
+    healthcare provider and receiving adequate care. As easy as that seems, that is not the case in
+    our society. There is not ample care being provided in the United States, especially for pregnant women.
+    This can be seen by the low number of hospital beds that are in some parts of the country.")
 )
   
 hospital_chloropleth <- tabPanel(
