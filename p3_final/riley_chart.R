@@ -87,3 +87,44 @@ maternal_mort_by_state_chart <- plot_ly(
     yaxis = list(title = "Maternal Mortality Rate")
   )
 
+# server function for real thingy
+output$maternal_mort <- renderPlotly({
+  data <- maternal_mort_by_state %>% 
+    filter(maternalMortalityRate >= input$maternalMortalityRate)
+  maternal_mort_by_state_chart <- plot_ly(
+    data = maternal_mort_by_state,
+    x = ~state,
+    y = ~maternalMortalityRate,
+    type = "bar",
+    alpha = .7,
+    color= "red"
+  ) %>%
+    layout(
+      title = "Maternal Mortality Rate by State",
+      xaxis = list(title = "State"),
+      yaxis = list(title = "Maternal Mortality Rate")
+    )
+  return(maternal_mort_by_state_chart)
+})
+
+# ui function for real thingy
+maternal_mort_main <- tabPanel(
+  "Maternal Mortality by State",
+  sidebarLayout(
+    sidebarPanel(
+      ui <- fluidPage(
+        sliderInput(
+          inputId = "maternalMortalityRate",
+          label = "Choose the rate for the states you want to be displayed",
+          min = 0,
+          max = 60,
+          value = 30
+        ),
+      ),
+      mainPanel(
+        h3("..."),
+        plotlyOutput("maternal_mort")
+      )
+    )
+  )
+)
