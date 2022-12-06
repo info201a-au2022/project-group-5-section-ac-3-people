@@ -112,7 +112,7 @@ blank_theme <- theme_bw() +
   )
 
 # Num Hospitals ggplotly map
-num_hospitals_map <- ggplot(hospitals_and_beds_per_state) +
+num_hospitals_map <- ggplotly(ggplot(hospitals_and_beds_per_state) +
   geom_polygon(
     mapping = aes(x = long, y = lat, group = group, fill = num_hospitals),
     color = "white",
@@ -122,6 +122,7 @@ num_hospitals_map <- ggplot(hospitals_and_beds_per_state) +
   scale_fill_continuous(low = "white", high = "blue") +
   labs(fill = "Number of Hospitals in State") +
   blank_theme
+)
   
 num_hospitals_map_ggplotly <- ggplotly(num_hospitals_map)
 
