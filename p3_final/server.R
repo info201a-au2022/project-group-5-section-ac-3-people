@@ -4,12 +4,14 @@ library("tidyverse")
 library("ggplot2")
 library("leaflet")
 library("plotly")
+library("maps")
+library("mapproj")
 
 # Setup: Data
-hospital_locations <- read.csv("../data/us_hospital_locations.csv")
-state_abb <- read.csv("../data/abbr-name-list.csv")
-maternal_mort_by_state <- read.csv("../data/maternal_mort_state.csv")
-pop2020 <- read.csv("../data/2020-pop.csv")
+hospital_locations <- read.csv("data/us_hospital_locations.csv")
+state_abb <- read.csv("data/abbr-name-list.csv")
+maternal_mort_by_state <- read.csv("data/maternal_mort_state.csv")
+pop2020 <- read.csv("data/2020-pop.csv")
 
 # ---
 # DATA WRANGLING

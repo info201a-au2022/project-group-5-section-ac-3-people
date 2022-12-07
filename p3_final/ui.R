@@ -7,7 +7,9 @@ library("leaflet")
 introduction <- tabPanel(
   "Introduction",
   titlePanel("Why is Understanding Healthcare Access Important?"),
-  p("The following data visualizations encapsulate the ongoing crisis of limited
+  p(strong("Riley Mintz (rimintz@uw.edu) and Max Stewart (mzs11@uw.edu)"),
+  p(""),
+  p("The data visualizations on this website encapsulate the ongoing crisis of limited
     healthcare access in the United States. Our group is interested in investigating
     where hospital access is greater based on both number of hospitals in a state, and number
     of hospital beds available."),
@@ -22,17 +24,27 @@ introduction <- tabPanel(
   p("With this website, we aimed to engage viewers and inform them of the healthcare disparities that
     appear where few hospitals can be found, especially when the amount of people those hospitals can service is few.
     Some of the questions we are asking are:"),
-  tags$ul(
+  tags$ul(strong(
     tags$li("What areas in the United States have the fewest hospitals, or lowest overall hospital capacity?"), 
-    tags$li("how does a state's hospital capacity compare to its population?"),
+    tags$li("How does a state's hospital capacity compare to its population?"),
     tags$li("Do states with fewer hospitals suffer worse healthcare outcomes, particularly maternal mortality?"), 
-  ), 
+  )), 
   p("All three of these main questions can be investigated using the
     interactive data visualizations and attached links on our website. The data we chose to analyze was
     from a dataset that provided the names, locations, and number of beds of hospitals in the U.S., as well
     as a dataset that provides maternal mortality for each state. The key findings of our investigation are:
     finding easy healthcare access is more attainable for people who live in more populated areas, and limited 
-    healthcare leads to an increase of maternal mortality.")
+    healthcare leads to an increase of maternal mortality."),
+  p(""),
+  tags$figure(
+    align = "center",
+    tags$img(
+      src = "intro_img.jpg",
+      alt = "healthcare workers mural"
+    )
+  ),
+  p("")
+)
 )
   
 hospital_chloropleth <- tabPanel(
@@ -56,7 +68,7 @@ hospital_chloropleth <- tabPanel(
         lower number. Based on the map,
         viewers can conclude that living in certain parts of the United States
         comes with limited healthcare access. For example, someone living in Texas 
-        will have more healthcare options than someone living in Wyoming.")
+        will have more hospital options than someone living in Wyoming.")
     )
   )
 )
@@ -80,11 +92,14 @@ location_leaflet <- tabPanel(
       p(""),
       p("In this dot distribution map, users can use the slider to filter which hospitals are shown by the minimum number of beds.
         Hovering over the dots will display the hospital name and the number of beds it has. Dragging or scrolling allows the user to look at different areas.
-        This map gives users a better understanding of what parts of the U.S. are denser
-        in terms of hospital bed amount. When 900 beds is selected, it is clear that the
+        This map gives users a better understanding of what parts of the U.S. have larger capacity hospitals, and the overall distribution of hospitals.
+        When 900 beds is selected, it is clear that the
         Southeast and the West Coast have the ability to care for more patients due to a
         higher bed count. Alternatively, when the slider is to the far right, there are
-        very few hospitals that would have the option to care for a higher number of patients. This can become an issue, for example, when many people need to be hospitalized due to an infectious disease.")
+        very few hospitals that would have the option to care for a higher number of patients. 
+        This can become an issue, for example, when many people need to be hospitalized due to an infectious disease.
+        Please note that hospitals that did not provide a bed count are displayed at the size of a 50 bed hospital, 
+        about half the mean hospital size, but display the bed count as NA upon mouseover")
     )
   )
 )
