@@ -7,9 +7,7 @@ library("plotly")
 
 # Setup: Data
 hospital_locations <- read.csv("../data/us_hospital_locations.csv")
-maternal_mort <- read.csv("../data/maternal_mortality_urban_rural.csv")
 state_abb <- read.csv("../data/abbr-name-list.csv")
-RUCC_codes <- read.csv("../data/ruralurbancodes2013.csv")
 maternal_mort_by_state <- read.csv("../data/maternal_mort_state.csv")
 pop2020 <- read.csv("../data/2020-pop.csv")
 
@@ -50,7 +48,7 @@ num_beds <- hospital_locations %>%
   group_by(state) %>% 
   summarise(
     state,
-    Beds = sum(beds, na.rm = TRUE)
+    Hospital.Beds = sum(beds, na.rm = TRUE)
   ) %>% 
   distinct(state, .keep_all = TRUE)
 
@@ -73,7 +71,7 @@ hospitals_and_beds_per_state <- state_shape %>%
   left_join(num_hospitals, by = "state") %>% 
   left_join(num_beds, by = "state") %>% 
   left_join(pop2020_tidy, by = "state") %>% 
-  mutate(Beds.Per.Capita = (Beds / Population))
+  mutate(Beds.Per.Capita = (Hospital.Beds / Population))
 
 # Hospital location (long, lat) and number of beds
 location_and_beds <- hospital_locations %>% 
@@ -101,7 +99,23 @@ maternal_mort_tidy <- maternal_mort_by_state %>%
 
 summary_table <- num_hospitals %>% 
   left_join(maternal_mort_tidy, by = "state") %>% 
-  left_join(pop2020_tidy, by = "state")
+  left_join(pop2020_tidy, by = "state") %>% 
+  summarise(
+    state = toupper(state),
+    Maternal_Mortality = rate,
+    Hospitals_Per_Capita = (Hospitals / Population) * 100000
+  ) %>% 
+  pivot_longer(
+    cols = c("Maternal_Mortality", "Hospitals_Per_Capita"),
+    names_to = "names",
+    values_to = "values"
+  ) %>% 
+  filter(state != is.na(NA))
+
+# Maternal Mort Map
+mat_mort_map <- state_shape %>% 
+  left_join(maternal_mort_tidy, by = "state")
+
 
 # Blank Theme
 blank_theme <- theme_bw() +
@@ -130,7 +144,10 @@ server <- function(input, output) {
     ) +
     coord_map() +
     scale_fill_continuous(low = "white", high = "#3CE1E9") +
-    labs(fill = paste("Total", input$num_hospitals_input, "in State", sep = " ")) +
+    labs(
+      fill = paste(input$num_hospitals_input, "in State", sep = " "), 
+      title = paste("Map of", input$num_hospitals_input, "In United States", sep = " ")
+        ) +
     blank_theme
     
     plotly <- ggplotly(ggplot)
@@ -175,16 +192,46 @@ server <- function(input, output) {
       layout(
         title = "Maternal Mortality Rate by State",
         xaxis = list(title = "State"),
-        yaxis = list(title = "Maternal Mortality Rate")
+        yaxis = list(title = "Maternal Mortalities per 100,000")
       )
     
     return(maternal_mort_by_state_chart)
   })
   
-  output$summary_bar <- renderPlotly({
+  output$summary_bar <- renderPlot({
     
-    ggplot <- ggplot(data = summary_table) +
-      geom_col(mapping = aes())
+    summary_ggplot <- ggplot(data = summary_table) +
+      geom_col(mapping = aes(x = state, y = values, fill = names), position = "dodge") +
+      scale_fill_discrete(
+        name = "Legend", 
+        breaks = c("Hospitals_Per_Capita", "Maternal_Mortality"), 
+        labels = c("Hospitals per Capita (per 100,000)", "Maternal Mortality (per 100,000)")) +
+      theme(axis.text.x = element_text(angle = 270)) + 
+      labs(
+        title = "In Summary: Overview of Relative Values", 
+        y = ""
+      )
+    
+    return(summary_ggplot)
+  })
+  
+  output$mort_map <- renderPlot({
+    
+    ggplot <- ggplot(mat_mort_map) +
+      geom_polygon(
+        mapping = aes(x = long, y = lat, group = group, fill = rate),
+        color = "black",
+        size = .1
+      ) +
+      coord_map() +
+      scale_fill_continuous(low = "white", high = "#3CE1E9") +
+      labs(
+        fill = "Maternal Mortality per 100,000", 
+        title = "Maternal Mortality by State"
+      ) +
+      blank_theme
+    
+    return(ggplot)
   })
   
 }

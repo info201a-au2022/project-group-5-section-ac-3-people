@@ -1,32 +1,38 @@
-library(shiny)
-library(shinythemes)
+library("shiny")
+library("shinythemes")
+library("plotly")
+library("leaflet")
 
 # maternal mortality by state bar chart 
 introduction <- tabPanel(
-  "introduction",
-  titlePanel("Why is understanding healthcare access important?"),
+  "Introduction",
+  titlePanel("Why is Understanding Healthcare Access Important?"),
   p("The following data visualizations encapsulate the ongoing crisis of limited
-    healthcare access in the United States. Our group was interested in investigating
-    where hospital access is more accessible based on hospital population and number
-    of hospital beds available. Additionally, we decided to look into maternal mortality
-    as a proxy for our research on hospital accessibility. For context, maternal mortality
+    healthcare access in the United States. Our group is interested in investigating
+    where hospital access is greater based on both number of hospitals in a state, and number
+    of hospital beds available."),
+  p("Additionally, we decided to look into maternal mortality
+    as a proxy for healthcare outcome in each state. For context, maternal mortality
     is defined as death while pregnant or within 42 days of the end of pregnancy from
     causes related to the pregnancy or its management. Maternal mortality typically arises from
-    health problems of the woman, but can almost always be resolved by being seen by the appropriate
+    health problems of the woman, but can almost always be resolved by being seen by an appropriate
     healthcare provider and receiving adequate care. As easy as that seems, that is not the case in
-    our society. There is not ample care being provided in the United States, especially for pregnant women.
-    This can be seen by the low number of hospital beds that are in some parts of the country.
-    With this website, we aimed to engage viewers and inform them of the healthcare disparities that
-    appear in where hospitals can be found and the amount of care that can be given in them.
-    Specifically, a few questions that we wanted to answer was what areas in the United States have
-    the fewest hospitals, or lowest overall hospital capacity, how does a state's hospital capacity
-    compare to its population, and if states with fewer hospitals suffer worse healthcare outcomes,
-    particularly maternal mortality. All three of these main questions can be investigated using the
+    our country. There is not ample care being provided in the United States, especially for pregnant women;
+    This can be seen by the low number of hospital beds in some parts of the country."),
+  p("With this website, we aimed to engage viewers and inform them of the healthcare disparities that
+    appear where few hospitals can be found, especially when the amount of people those hospitals can service is few.
+    Some of the questions we are asking are:"),
+  tags$ul(
+    tags$li("What areas in the United States have the fewest hospitals, or lowest overall hospital capacity?"), 
+    tags$li("how does a state's hospital capacity compare to its population?"),
+    tags$li("Do states with fewer hospitals suffer worse healthcare outcomes, particularly maternal mortality?"), 
+  ), 
+  p("All three of these main questions can be investigated using the
     interactive data visualizations and attached links on our website. The data we chose to analyze was
     from a dataset that provided the names, locations, and number of beds of hospitals in the U.S., as well
-    as a dataset that provides maternal mortality for each state. The key findings of our investigation are
-    that finding easy healthcare access is more attainable for people who live in more populated areas and that limited 
-    healthcare leads to the increase of maternal mortality.")
+    as a dataset that provides maternal mortality for each state. The key findings of our investigation are:
+    finding easy healthcare access is more attainable for people who live in more populated areas, and limited 
+    healthcare leads to an increase of maternal mortality.")
 )
   
 hospital_chloropleth <- tabPanel(
@@ -37,13 +43,14 @@ hospital_chloropleth <- tabPanel(
       selectInput(
         inputId = "num_hospitals_input",
         label = "Choose Hospital Size Variable",
-        choices = c("Hospitals", "Beds", "Beds.Per.Capita", "Population"),
+        choices = c("Hospitals", "Hospital.Beds", "Beds.Per.Capita", "Population"),
         selected = "Hospitals"
       ),
     ),
     mainPanel(
-      h3("Map of State Total Hospitals or Hospital Beds"),
+      h3("Distribution:"),
       plotlyOutput("num_hospitals_map"),
+      p(""),
       p("In this chloropleth map, users can choose to display the number of hospitals, hospital beds, beds per person (Beds.Per.Capita), or the state population as of 2020. A darker color indicates a higher
         number of the selected value in that state, and a lighter color indicates a
         lower number. Based on the map,
@@ -70,8 +77,9 @@ location_leaflet <- tabPanel(
     mainPanel(
       h3("Name, Location, and Number of Beds of US Hospitals"),
       leafletOutput("leaflet"),
+      p(""),
       p("In this dot distribution map, users can use the slider to filter which hospitals are shown by the minimum number of beds.
-        Hovering over the dots will display the hospital name and the number of beds it has.
+        Hovering over the dots will display the hospital name and the number of beds it has. Dragging or scrolling allows the user to look at different areas.
         This map gives users a better understanding of what parts of the U.S. are denser
         in terms of hospital bed amount. When 900 beds is selected, it is clear that the
         Southeast and the West Coast have the ability to care for more patients due to a
@@ -87,12 +95,13 @@ maternal_mort_main <- tabPanel(
   plotlyOutput("maternal_mort", width = "100%", height = "auto"),
   sliderInput(
     inputId = "mort_input",
-    label = "Choose the rate for the states you want to be displayed",
+    label = "Minimum Maternal Mortality Rate to be Displayed",
     min = 4,
     max = 59,
     value = 59
   ), 
-  p("This bar chart displays the maternal mortality rate per state. Users may
+  p(""),
+  p("This bar chart displays the maternal mortality rate per state in deaths per 100,000 pregnancies. Users may
     use the sliding input bar to display states that have at least the chosen
     rate. Hovering over the bars will display the state name and its maternal
     mortality rate. An observation that can be made from this graph is that
@@ -104,20 +113,31 @@ maternal_mort_main <- tabPanel(
     )
 
 summary <- tabPanel(
-  "summary",
-  titlePanel("Key Takeaways:"), 
-  p("paragraoh HERE!")
+  "Summary",
+  titlePanel("Summary"), 
+  p("looking at the distribution of hospitals, we've seen that states near the coasts tend to have more hospitals, but when we compare beds per person in each state we see that most areas have a comparable amount of hospital beds proportionate to their population. The exception for this is the Southwest United States near the Four-Corners Region, which has relatively few hospitals as well as few hospital beds per person."),
+  p("Here is a chart summarising the hospitals per capita (number of hospitals per 100,000 people) and maternal mortality rate (number of deaths per 100,000 pregnancies)"),
+  plotOutput("summary_bar"),
+  p("This chart shows that states with more hospitals per capita tend to have relatively few maternal mortalities compared to other states, but just having more hospitals per capita isn't necessarily an indicator of particularly low maternal mortality."),
+  plotOutput("mort_map"),
+  p("You can see by comparing this distribution map to the distribution maps of hospitals, hospital beds, and hospitals per capita that the maternal mortality rate seems to somewhat independant of the number of hospitals in a state, and more correlated with the part of the USA it's in, with the South and Midwest having higher maternal mortality rates than, for example, the West Coast"), 
+  h4("Key Takeaways:"),
+  tags$ul(
+    tags$li("Most states have a number of available hospital beds relatively proportionate to their population, although states in the West and particularly Southwest have few compared to other areas."),
+    tags$li("Just looking at the number of beds in a state doesn't give you enough information about the access people living in that state have to healthcare, you must also consider how they are distributed throughout the state, and therefore how difficult it is to get to the nearest hospital. This is a reason that even when there are a relatively high number of hospital beds per person, people in a state may feel that accessing hospitals is very difficult."),
+    tags$li("Having more hospitals in a state isn't very correlated to having particularly low maternal mortality. It seems much more dependant on what area of the United States you live in. This means other factors such as distance from hospitals, access to insurance, poverty, and social stigma may be driving high maternal mortality outcomes in states with relatively many hospitals.")
+  )
 )
 
 report <- tabPanel(
-  "report",
+  "Report Page",
   titlePanel("Report Page"), 
   h3("Healthcare Access in USA"),
   p(strong("codename: health-disparities")),
   p(em("Riley Mintz (rimintz@uw.edu) and Max Stewart (mzs11@uw.edu)")),
   p("Autumn 2022"), 
   h4("Abstract"),
-    p("MAXXXXXXXXXXXXXXXX"),
+    p("We explored the relationship between the number of hospitals and rate of maternal mortality in a state. We found that states with more hospitals per capita didn't necessarily have lower rates of maternal mortality. We did find that maternal mortality is more highly correlated with the region of the United States a state is in, implying factors other than hospital access such as social stigma are driving these numbers."),
   em("Keywords: healthcare, hospitals, healthcare access, hospital access"),
   h4("Introduction"),
     p("Our website aims to investigate the healthcare disparities that lie in where and who can access hospitals. While most of our website deals with where hospitals are located in the United States and the number of people that can be seen in each, we take into account a healthcare issue that is impacted by the accessibility of hospitals - maternal mortality. Pregnant women that can't be seen by the appropriate provider or receive enough medical care during their pregnancy often increase the maternal mortality rate for that state. With the interactive data visualizations that we provide on our website, people can learn about how hospitals are distributed and can gain insight into how difficult it would be to get timely medical care if you didn't live in the parts of the country where hospitals are abundant. We chose to focus on the accessibility that the current hospital population in the United States provides people."),
@@ -142,23 +162,68 @@ report <- tabPanel(
   p("We are using 2 primary datasets and two supplementary datasets, linked below:"),
   tags$ul(
     tags$li(a("US Hospital Locations: ", href = "https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations"), "This dataset provides the names, locations, and number of beds of hospitals in the USA. We used this information to answer questions about hospital density across states, build a map, and find the number of hospital beds compared to the population of a state. Data is from The U.S. Department of Homeland Security."),
-    tags$li(a("Maternal Mortality Rate by State 2022: ", href = "https://worldpopulationreview.com/state-rankings/maternal-mortality-rate-by-state"), "We used this dataset to graph the maternal mortality for each state. Data from USA TODAY"),
+    tags$li(a("Maternal Mortality Rate by State 2022: ", href = "https://worldpopulationreview.com/state-rankings/maternal-mortality-rate-by-state"), "We used this dataset to graph the maternal mortality for each state. Value is in deaths per 100,000 births. Data from USA TODAY"),
     tags$li(a("List of State Abbreviations: ", href = "https://worldpopulationreview.com/states/state-abbreviations"), "We simply used this to match state abbreviations to their full state names. Data from World Population Review."),
     tags$li(a("Census Table DP05: ", href = "https://data.census.gov/table?q=population&t=Population+Total&g=0100000US$0400000&y=2020&tid=DECENNIALPL2020.P1&tp=true"), "2020 Population Estimates by state. Data from U.S Census Bureu.")
   ),
   h4("Report"),
-  p(strong("Findings: "), "Our group was grateful for the opportunity that was given to us to learn more about the disparities that arise with the unbalanced distribution of hospitals across the United States. While it was already common knowledge to us that the United States healthcare system is corrupted, we learned just how unevenly spread out hospitals are in the United States. Our first research question was looking into what areas in the United States have the fewest hospitals or lowest overall hospital capacity. By using the 'Map of State Total Hospitals or Hospital Beds' map and 'Name, Location, and Number of Beds of US Hospitals' map, we can see that the regions that have the lowest number of hospitals are states in the middle of the United States like Wyoming, Utah, and Nebraska. This is due to the population being more spread out in states such as these. Regardless of how the population is spread, all people should have easy access to hospitals and not be forced to travel hours to be seen by a professional. Our second research question was how a state's hospital capacity compares to its population. 
-    Based on our findings and research, states with a lower population almost always have a smaller number of hospitals and hospital beds available to patients. While fiscally it makes sense to have fewer hospitals where there are fewer people, this forces the people of that state to make literal road trips for medical visits whereas people in places such as California or Texas might just have to walk a few blocks to see a medical professional. In a perfect world (and hopefully in the upcoming future), more medical facilities become available for those who live in less populated places. Our third research question is looking into if states with fewer hospitals suffer worse healthcare outcomes, particularly maternal mortality. Our charts present the finding that it is often the case that hospitals with fewer hospital beds available suffer from higher rates of maternal mortality as well. This is due to not enough women being seen and falling victim to the lack of room there is for patients."), 
-  p(strong("Discussion: "), "MAXXXXXXXXXX"), 
-  p(strong("Conclusion: "), "After copious time going through our datasets and looking through our data visualizations, our conclusion is that the current healthcare distribution in the United States is only beneficial if you happen to live in more metropolitan areas. For people who live in the middle of the United States, hospitals are sparse. And for the hospitals there are in the less populated parts of the United States, beds are limited. Knowing this, we can assume that the competition for who gets seen is even more stressful for the people living there. On top of having to drive hours to get to the nearest hospital, those potential patients will need to take into account that everyone in the surrounding region will also be driving to that hospital to be seen. The state of our medical system needs to be improved heavily and we believe that one of the first steps to this is expanding existing hospitals to accommodate more people and then building new medical facilities in the areas of the U.S. that lack them. In regards to the maternal mortality issue that is forever prominent in our country, we believe that the lack of medical facilities in certain parts of the United States is a strong contributor to why this problem is still prevalent even though we have the technology and knowledge to combat it. If we take a look at California for example, we see that while its population size is extremely high, they have a low maternal mortality rate. 
-    Using an educated guess, we can assume that this is due to the high number of hospitals and bed availability that can be seen in our graphs. For the United States to take better care of its people, we need to start by allowing all people to have equal medical care access regardless of their location, race, age, sex, or socioeconomic background.  "),
+  p(strong("Findings: "), "Our group was grateful for the opportunity that we have had
+  to learn more about the disparities that arise with the unbalanced distribution of hospitals 
+  across the United States. While it was already common knowledge to us that the United States
+  healthcare system is corrupted, we learned just how unevenly spread out our hospitals are.
+  Our first research question was looking into what areas in the United States have the fewest hospitals 
+  or lowest overall hospital capacity. By using the 'Map of State Total Hospitals or Hospital Beds' map 
+  and 'Name, Location, and Number of Beds of US Hospitals' map, we can see that the regions that have the 
+  lowest number of hospitals are states in the middle of the United States like Wyoming, Utah, and Nebraska. 
+  This is due to the population being more spread out in states such as these. Regardless of how the population 
+  is spread, all people should have easy access to hospitals and not be forced to travel hours to be seen by a 
+  professional. Our second research question was how a state's hospital capacity compares to its population. 
+  Based on our findings and research, states with a lower population almost always have a smaller number of hospitals 
+  and hospital beds available to patients. While fiscally it makes sense to have fewer hospitals where there are 
+  fewer people, this forces the people of that state to make literal road trips for medical visits whereas people 
+  in places such as California or Texas might just have to walk a few blocks to see a medical professional. 
+  In a perfect world (and hopefully in the upcoming future), more medical facilities become available for those 
+  who live in less populated places. Our third research question is looking into if states with fewer hospitals suffer 
+  worse healthcare outcomes, particularly maternal mortality. Our charts present the finding that it is often the 
+  case that hospitals with fewer hospital beds available suffer from higher rates of maternal mortality, but not 
+  necessarily higher than states with fewer hospitals. Maternal Mortality seemed more correlated to region of the country."), 
+  p(strong("Discussion: "), "We had expected to find that states with smaller populations had fewer hospitals, fewer hospital beds,
+    and worse health outcomes like higher maternal mortality than states with larger populations. We did find that states with higher populations
+    tended to have more total hospitals and beds, but the beds per capita was actually higher in states with smaller populations. Despite this, 
+    our research showed that residents of rural states with smaller populations tended to struggle to find healthcare. We suspect this is because
+    despite the relative number of beds per person being equal or higher to the rest of the country, hospitals are located in only a few
+    parts of states with small populations, causing people to have to travel long distances to recieve care. We looked into maternal mortality's correlation
+    with hospitals per capita and found that maternal mortality is not very strongly correlated to this, but does seem correlated to what region of 
+    the United States you are in, with Midwestern and Southern states having higher rates. This seems to imply other factors, perhaps social
+    stigma or access to health insurance, are what is driving these high numbers. This analysis was limited in only looking into maternal mortality, and we would
+    be interested in seeing how other health outcomes correlate with this hospital distribution data."), 
+  p(strong("Conclusion: "), "After going through our datasets and looking through our data visualizations, our conclusion 
+  is that the current healthcare distribution in the United States is only beneficial if you happen to live in more 
+  metropolitan areas. For people who live in the middle of the United States, hospitals are sparse, and although the 
+  total capacity of all hospitals in a state tends to fall in line with the state's population, people in less populated 
+  states must travel long distances to access care. Knowing this, it is apparent that simply physically accessing healthcare 
+  is very stressful for the people living there. On top of having to drive hours to get to the nearest hospital, those 
+  potential patients will need to take into account that everyone in the surrounding region will also be driving to that 
+  hospital to be seen, and at the same time more rural states tend to have fewer doctors. The state of our medical system needs 
+  to be improved heavily and we believe that one of the first steps to this is building new medical facilities to serve local 
+  communities in the areas of the U.S. that lack them, and ensuring doctors are incentivised to stay working there. 
+  In regards to the maternal mortality issue that is forever prominent in our country, we believe that the lack of medical 
+  facilities in certain parts of the United States is a strong contributor to why this problem is still prevalent, 
+  but it is heavily compounded by social stigma in certain areas. Using an educated guess, we can assume that this is due to the 
+    high number of hospitals and bed availability that can be seen in our graphs. For the United States to take better care of its 
+    people, we need to start by allowing all people to have equal medical care access regardless of their location, race, age, sex, 
+    or socioeconomic background."),
   h4("Acknowledgements"), 
   p("We would like to shout out Anushka Damidi who helped us in the early development of this project!"), 
   h4("References"), 
   tags$ul(
-    tags$li(""),
-    tags$li(""),
-    tags$li("")
+    tags$li("https://www.pewresearch.org/fact-tank/2018/12/12/how-far-americans-live-from-the-closest-hospital-differs-by-community-type/"),
+    tags$li("https://www.cdc.gov/reproductivehealth/maternal-mortality/pregnancy-mortality-surveillance-system.htm"),
+    tags$li("https://www.npr.org/sections/health-shots/2019/05/21/725118232/the-struggle-to-hire-and-keep-doctors-in-rural-areas-means-patients-go-without-c"), 
+    tags$li("https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations"),
+    tags$li("https://worldpopulationreview.com/state-rankings/maternal-mortality-rate-by-state"),
+    tags$li("https://worldpopulationreview.com/states/state-abbreviations"),
+    tags$li("https://data.census.gov/table?q=population&t=Population+Total&g=0100000US$0400000&y=2020&tid=DECENNIALPL2020.P1&tp=true")
   )
 )
 

@@ -1,0 +1,13 @@
+name: healthcare-access
+title: healthcare-access
+username:
+account: mzs-11
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7835061
+bundleId: 6602887
+url: https://mzs-11.shinyapps.io/healthcare-access/
+when: 1670391132.95064
+lastSyncTime: 1670391132.95065
+asMultiple: FALSE
+asStatic: FALSE
