@@ -11,6 +11,7 @@ maternal_mort <- read.csv("../data/maternal_mortality_urban_rural.csv")
 state_abb <- read.csv("../data/abbr-name-list.csv")
 RUCC_codes <- read.csv("../data/ruralurbancodes2013.csv")
 maternal_mort_by_state <- read.csv("../data/maternal_mort_state.csv")
+pop2020 <- read.csv("../data/2020-pop.csv")
 
 # ---
 # DATA WRANGLING
@@ -53,10 +54,26 @@ num_beds <- hospital_locations %>%
   ) %>% 
   distinct(state, .keep_all = TRUE)
 
+# 2020 Population Tidying
+pop2020_tidy <- pop2020%>% 
+  mutate_all(funs(str_squish(.))) %>% 
+  summarise(
+    state = tolower(Label..Grouping.),
+    pop = Total.
+  ) %>% 
+  mutate(pop = gsub(",", "", pop)) %>%  
+  filter(pop != "") %>% 
+  summarise(
+    state, 
+    Population = as.numeric(pop)
+  )
+
 # Number of Total Hospitals and Total Beds per state (for chloropleth map)
 hospitals_and_beds_per_state <- state_shape %>% 
   left_join(num_hospitals, by = "state") %>% 
-  left_join(num_beds, by = "state")
+  left_join(num_beds, by = "state") %>% 
+  left_join(pop2020_tidy, by = "state") %>% 
+  mutate(Beds.Per.Capita = (Beds / Population))
 
 # Hospital location (long, lat) and number of beds
 location_and_beds <- hospital_locations %>% 
@@ -74,6 +91,17 @@ location_and_beds <- hospital_locations %>%
     beds_no_na = replace_na(beds, 50),
     pt_size = log(beds_no_na, 2),
   )
+
+# Summary Chart Dataframe
+maternal_mort_tidy <- maternal_mort_by_state %>% 
+  summarise(
+    state = tolower(state),
+    rate = maternalMortalityRate
+  )
+
+summary_table <- num_hospitals %>% 
+  left_join(maternal_mort_tidy, by = "state") %>% 
+  left_join(pop2020_tidy, by = "state")
 
 # Blank Theme
 blank_theme <- theme_bw() +
@@ -151,6 +179,12 @@ server <- function(input, output) {
       )
     
     return(maternal_mort_by_state_chart)
+  })
+  
+  output$summary_bar <- renderPlotly({
+    
+    ggplot <- ggplot(data = summary_table) +
+      geom_col(mapping = aes())
   })
   
 }

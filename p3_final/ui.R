@@ -26,17 +26,16 @@ hospital_chloropleth <- tabPanel(
       selectInput(
         inputId = "num_hospitals_input",
         label = "Choose Hospital Size Variable",
-        choices = c("Hospitals", "Beds"),
-        selected = "num_hospitals"
+        choices = c("Hospitals", "Beds", "Beds.Per.Capita", "Population"),
+        selected = "Hospitals"
       ),
     ),
     mainPanel(
       h3("Map of State Total Hospitals or Hospital Beds"),
       plotlyOutput("num_hospitals_map"),
-      p("In this chloropleth map, users can choose to display the number of hospital
-        beds or the number of hospitals per state. A darker color indicates a higher
-        number of beds or hospitals in that state and a lighter color indicates a
-        lower number of beds or hospitals in that state. Based on the map,
+      p("In this chloropleth map, users can choose to display the number of hospitals, hospital beds, beds per person (Beds.Per.Capita), or the state population as of 2020. A darker color indicates a higher
+        number of the selected value in that state, and a lighter color indicates a
+        lower number. Based on the map,
         viewers can conclude that living in certain parts of the United States
         comes with limited healthcare access. For example, someone living in Texas 
         will have more healthcare options than someone living in Wyoming.")
@@ -60,14 +59,13 @@ location_leaflet <- tabPanel(
     mainPanel(
       h3("Name, Location, and Number of Beds of US Hospitals"),
       leafletOutput("leaflet"),
-      p("In this dot distribution map, users can use the sliding input bar to
-        display hospitals in the U.S. that have the selected number of hospital beds.
-        Hovering over the dots will display the hospital name and the number of beds.
+      p("In this dot distribution map, users can use the slider to filter which hospitals are shown by the minimum number of beds.
+        Hovering over the dots will display the hospital name and the number of beds it has.
         This map gives users a better understanding of what parts of the U.S. are denser
         in terms of hospital bed amount. When 900 beds is selected, it is clear that the
         Southeast and the West Coast have the ability to care for more patients due to a
         higher bed count. Alternatively, when the slider is to the far right, there are
-        very few hospitals that would have the option to care for a higher number of patients.")
+        very few hospitals that would have the option to care for a higher number of patients. This can become an issue, for example, when many people need to be hospitalized due to an infectious disease.")
     )
   )
 )
@@ -104,8 +102,8 @@ report <- tabPanel(
   "report",
   titlePanel("Report Page"), 
   h3("Healthcare Access in USA"),
-  strong("codename: health-disparities"),
-  em("Riley Mintz (rimintz@uw.edu) and Max Stewart (mzs11@uw.edu)"),
+  p(strong("codename: health-disparities")),
+  p(em("Riley Mintz (rimintz@uw.edu) and Max Stewart (mzs11@uw.edu)")),
   p("Autumn 2022"), 
   h4("Abstract"),
     p(""),
@@ -133,7 +131,7 @@ report <- tabPanel(
     tags$li(a("US Hospital Locations: ", href = "https://www.kaggle.com/datasets/andrewmvd/us-hospital-locations"), "This dataset provides the names, locations, and number of beds of hospitals in the USA. We used this information to answer questions about hospital density across states, build a map, and find the number of hospital beds compared to the population of a state. Data is from The U.S. Department of Homeland Security."),
     tags$li(a("Maternal Mortality Rate by State 2022: ", href = "https://worldpopulationreview.com/state-rankings/maternal-mortality-rate-by-state"), "We used this dataset to graph the maternal mortality for each state. Data from USA TODAY"),
     tags$li(a("List of State Abbreviations: ", href = "https://worldpopulationreview.com/states/state-abbreviations"), "We simply used this to match state abbreviations to their full state names. Data from World Population Review."),
-    tags$li(a("Rural-Urban Continuum Codes: ", href = "https://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx"), "We intended to explore healthcare outcomes by RUCC code, but were unable to complete that analysis in the given time. We also used this population data as a rough estimate of population for determining hospitals per capita in state. Data from U.S. Department of Agriculture.")
+    tags$li(a("Census Table DP05: ", href = "https://data.census.gov/table?q=population&t=Population+Total&g=0100000US$0400000&y=2020&tid=DECENNIALPL2020.P1&tp=true"), "2020 Population Estimates by state. Data from U.S Census Bureu.")
   ),
   h4("Report"),
   p(strong("Findings: "), ""), 

@@ -13,6 +13,7 @@ maternal_mort <- read.csv("../data/maternal_mortality_urban_rural.csv")
 state_abb <- read.csv("../data/abbr-name-list.csv")
 RUCC_codes <- read.csv("../data/ruralurbancodes2013.csv")
 maternal_mort_by_state <- read.csv("../data/maternal_mort_state.csv")
+pop2020 <- read.csv("../data/2020-pop.csv")
 
 # ---
 # DATA WRANGLING
@@ -22,7 +23,7 @@ maternal_mort_tidy <- maternal_mort_by_state %>%
   left_join(state_abb, by = c("state" = "name")) %>% 
   summarise(
     state,
-    abbreviation = 
+    abbreviation
   )
 
 # Default Map Shape
@@ -63,10 +64,26 @@ num_beds <- hospital_locations %>%
   ) %>% 
   distinct(state, .keep_all = TRUE)
 
+# 2020 Pop Tidy
+pop2020_tidy <- pop2020%>% 
+  mutate_all(funs(str_squish(.))) %>% 
+  summarise(
+    state = tolower(Label..Grouping.),
+    pop = Total.
+  ) %>% 
+  mutate(pop = gsub(",", "", pop)) %>%  
+  filter(pop != "") %>% 
+  summarise(
+    state, 
+    pop = as.numeric(pop)
+  )
+
 # Number of Total Hospitals and Total Beds per state (for chloropleth map)
 hospitals_and_beds_per_state <- state_shape %>% 
   left_join(num_hospitals, by = "state") %>% 
-  left_join(num_beds, by = "state")
+  left_join(num_beds, by = "state") %>% 
+  left_join(pop2020_tidy, by = "state") %>% 
+  mutate(Beds.Per.Capita = (total_beds / pop))
 
 # Hospital location (long, lat) and number of beds
 location_and_beds <- hospital_locations %>% 
@@ -84,23 +101,6 @@ location_and_beds <- hospital_locations %>%
     beds_no_na = replace_na(beds, 50),
     pt_size = log(beds_no_na, 2),
   )
-
-# RUCC Codes with coordinates (DOESNT WORK RN)
-rucc_tidy <- RUCC_codes %>% 
-  left_join(state_abb, by = c("State" = "abbreviation")) %>% 
-  summarise(
-    state = tolower(name),
-    county = County_Name,
-    rucc = RUCC_2013,
-    description = Description,
-    pop = Population_2010
-  )  %>% 
-  group_by(state) %>% 
-  pivot_wider(names_from = rucc, values_from = rucc)
-
-
-rucc_coords <- state_shape %>% 
-  left_join(rucc_tidy, by = "state") %>% 
 
 
 # ---
@@ -164,6 +164,28 @@ rucc_codes_map <- ggplot(rucc_coords) +
 maternal_mort_by_state_chart_test <- ggplot(maternal_mort_by_state) +
   geom_col(mapping = aes(x = state, y = maternalMortalityRate))
 
+# Summary Chart Dataframe
+maternal_mort_tidy <- maternal_mort_by_state %>% 
+  summarise(
+    state = tolower(state),
+    rate = maternalMortalityRate
+  )
+
+summary_table <- num_hospitals %>% 
+  left_join(maternal_mort_tidy, by = "state") %>% 
+  left_join(pop2020_tidy, by = "state") %>% 
+  summarise(
+    state,
+    
+  )
+  pivot_longer(
+    cols = c("num_hospitals", "rate", "pop"),
+    names_to = "names",
+    values_to = "values"
+  )
+
+summary_ggplot <- ggplot(data = summary_table) +
+  geom_col(mapping = aes(x = state, y = values, fill = names), position = "dodge")
 
 
 
